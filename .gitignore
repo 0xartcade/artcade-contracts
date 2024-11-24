@@ -1,0 +1,13 @@
+# Foundry
+lib/
+cache/
+out/
+broadcast/
+docs/
+
+# General
+.env
+.DS_Store
+
+# Python
+.venv/
