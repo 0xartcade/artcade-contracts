@@ -9,3 +9,6 @@
 4. Install python dependencies with `poetry install`
 5. Run `make build` to build the contracts
 6. Run `make tests` to run all tests
+
+## High Level Architecture
+![onchain architecture](./public/onchain-architecture.png)
