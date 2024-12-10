@@ -11,3 +11,6 @@ docs/
 
 # Python
 .venv/
+
+# Soldeer
+dependencies/

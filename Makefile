@@ -18,11 +18,10 @@ install-pre-commit:
 ### MODULES
 #####################################
 remove:
-	rm -rf lib
+	rm -rf dependencies
 
 install:
-	forge install foundry-rs/forge-std --no-git
-	forge install Transient-Labs/tl-creator-contracts@3.3.0 --no-git
+	forge soldeer install
 
 update: remove install
 	
@@ -55,3 +54,16 @@ cov-tests: build
 fuzz-tests: build
 	forge test --fuzz-runs 10000
 
+#####################################
+### DEPLOY
+#####################################
+
+deploy-artcade-testnet: build
+	forge script script/Deploy.s.sol:DeployArtcade --evm-version paris --rpc-url shape_sepolia --ledger --sender ${SENDER} --broadcast
+	forge verify-contract $$(cat out.txt) src/Artcade.sol:Artcade --verifier blockscout --verifier-url https://explorer-sepolia.shape.network/api --watch --constructor-args ${CONSTRUCTOR_ARGS}
+	@bash print_and_clean.sh
+
+deploy-game-testnet: build
+	forge script script/Deploy.s.sol:DeployGame --evm-version paris --rpc-url shape_sepolia --ledger --sender ${SENDER} --broadcast
+	forge verify-contract $$(cat out.txt) src/Game.sol:Game --verifier blockscout --verifier-url https://explorer-sepolia.shape.network/api --watch --constructor-args ${CONSTRUCTOR_ARGS}
+	@bash print_and_clean.sh

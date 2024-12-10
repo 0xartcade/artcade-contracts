@@ -1,12 +1,13 @@
 [profile.default]
 src = 'src'
 out = 'out'
-libs = ['lib']
+libs = ['lib', "dependencies"]
 evm_version = 'paris'
 auto_detect_solc = true
 optimizer = true
 optimizer_runs = 20000
 verbosity = 3
+show_progress = true
 wrap_comments = true
 gas_reports = []
 fs_permissions = [{ access = "read-write", path = "./"}]
@@ -17,3 +18,14 @@ runs = 1024
 [rpc_endpoints]
 shape_sepolia = "${SHAPE_SEPOLIA_RPC_URL}"
 shape = "${SHAPE_RPC_URL}"
+
+[soldeer]
+recursive_deps = false
+
+[dependencies]
+forge-std = "1.9.4"
+tl-sol-tools = "3.1.4"
+tl-creator-contracts = "3.3.1"
+tl-universal-deployer = "1.0.1"
+"@openzeppelin-contracts" = "5.0.2"
+"@openzeppelin-contracts-upgradeable" = "5.0.2"

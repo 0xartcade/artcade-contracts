@@ -1,0 +1,41 @@
+[[dependencies]]
+name = "@openzeppelin-contracts"
+version = "5.0.2"
+url = "https://soldeer-revisions.s3.amazonaws.com/@openzeppelin-contracts/5_0_2_14-03-2024_06:11:59_contracts.zip"
+checksum = "8bc4f0acc7c187771b878d46f7de4bfad1acad2eb5d096d9d05d34035853f5c3"
+integrity = "55881f6114aa36158566ef52b486d9d96b217c3e47d0e24bbd4994a8cfb5ee7c"
+
+[[dependencies]]
+name = "@openzeppelin-contracts-upgradeable"
+version = "5.0.2"
+url = "https://soldeer-revisions.s3.amazonaws.com/@openzeppelin-contracts-upgradeable/5_0_2_14-03-2024_06:12:07_contracts-upgradeable.zip"
+checksum = "fb3f8db8541fc01636f91b0e7d9dd6f450f1bf7e2b4a17e96caf6e779ace8f5b"
+integrity = "4bded842e12902cca59a500494d26586b3baea76b59150fd4e2b1d29078a2e71"
+
+[[dependencies]]
+name = "forge-std"
+version = "1.9.4"
+url = "https://soldeer-revisions.s3.amazonaws.com/forge-std/1_9_4_25-10-2024_14:36:59_forge-std-1.9.zip"
+checksum = "b5be24beb5e4dab5e42221b2ad1288b64c826bee5ee71b6159ba93ffe86f14d4"
+integrity = "3874463846ab995a6a9a88412913cacec6144f7605daa1af57c2d8bf3f210b13"
+
+[[dependencies]]
+name = "tl-creator-contracts"
+version = "3.3.1"
+url = "https://soldeer-revisions.s3.amazonaws.com/tl-creator-contracts/3_3_1_01-12-2024_22:40:58_tl-creator-contracts.zip"
+checksum = "721036c50b35f4f6871bdc031ab636412833805d185627bba25a7d040f880667"
+integrity = "d2b4f4c68d885ab56e377e5a182aa8df1338ded1f948971bc3f5248bed9ad5a9"
+
+[[dependencies]]
+name = "tl-sol-tools"
+version = "3.1.4"
+url = "https://soldeer-revisions.s3.amazonaws.com/tl-sol-tools/3_1_4_30-11-2024_04:20:43_tl-sol-tools.zip"
+checksum = "f8151afb90cb443e33a9f904508e3063db62d2cd65f3b258401278c2b4f19511"
+integrity = "a34fbd0e70045a67759f9f00c9689a774740f61a92d9beb0aa6e48b9fc1346f6"
+
+[[dependencies]]
+name = "tl-universal-deployer"
+version = "1.0.1"
+url = "https://soldeer-revisions.s3.amazonaws.com/tl-universal-deployer/1_0_1_05-12-2024_04:31:20_tl-universal-deployer.zip"
+checksum = "a8fd950c4ff62a667ed15d616872e8f88c9b390e25be52d19c3d6e2b69e14518"
+integrity = "b1e075a21b811deca9c65228beb007044dcb8c2be99d6ed736c31cd3e214e1ee"
