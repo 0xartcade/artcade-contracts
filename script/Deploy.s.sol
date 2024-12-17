@@ -3,6 +3,7 @@ pragma solidity 0.8.22;
 
 import "forge-std-1.9.4/Script.sol";
 import {Artcade} from "../src/Artcade.sol";
+import {Game} from "../src/Game.sol";
 
 interface ICreate2Deployer {
     function deploy(uint256 value, bytes32 salt, bytes memory code) external;
@@ -19,6 +20,37 @@ contract DeployArtcade is Script {
 
         // get the creation code for Artcade with constructor args
         bytes memory creationCode = abi.encodePacked(type(Artcade).creationCode, constructorArgs);
+
+        // start broadcasting transactions
+        vm.startBroadcast();
+
+        // deploy using CREATE2
+        ICreate2Deployer(CREATE_2_DEPLOYER).deploy(
+            0, // value - amount of ETH to send
+            salt,
+            creationCode
+        );
+
+        vm.stopBroadcast();
+
+        // calculate and log the deployed address
+        bytes32 codeHash = keccak256(creationCode);
+        address deployedAddress = ICreate2Deployer(CREATE_2_DEPLOYER).computeAddress(salt, codeHash);
+        console.log("Artcade deployed to:", deployedAddress);
+
+        // write deployed address to file
+        vm.writeFile("out.txt", vm.toString(deployedAddress));
+    }
+}
+
+contract DeployGame is Script {
+    function run() external {
+        // load environment variables
+        bytes32 salt = vm.envBytes32("SALT");
+        bytes memory constructorArgs = vm.envBytes("CONSTRUCTOR_ARGS");
+
+        // get the creation code for Artcade with constructor args
+        bytes memory creationCode = abi.encodePacked(type(Game).creationCode, constructorArgs);
 
         // start broadcasting transactions
         vm.startBroadcast();
