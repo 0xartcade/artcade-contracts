@@ -55,7 +55,7 @@ fuzz-tests: build
 	forge test --fuzz-runs 10000
 
 #####################################
-### DEPLOY
+### DEPLOY TESTNET
 #####################################
 
 deploy-artcade-testnet: build
@@ -66,4 +66,18 @@ deploy-artcade-testnet: build
 deploy-game-testnet: build
 	forge script script/Deploy.s.sol:DeployGame --evm-version paris --rpc-url shape_sepolia --ledger --sender ${SENDER} --broadcast
 	forge verify-contract $$(cat out.txt) src/Game.sol:Game --verifier blockscout --verifier-url https://explorer-sepolia.shape.network/api --watch --constructor-args ${CONSTRUCTOR_ARGS}
+	@bash print_and_clean.sh
+
+#####################################
+### DEPLOY MAINNET
+#####################################
+
+deploy-artcade-mainnet: build
+	forge script script/Deploy.s.sol:DeployArtcade --evm-version paris --rpc-url shape --ledger --sender ${SENDER} --broadcast
+	forge verify-contract $$(cat out.txt) src/Artcade.sol:Artcade --verifier blockscout --verifier-url https://shapescan.xyz/api --watch --constructor-args ${CONSTRUCTOR_ARGS}
+	@bash print_and_clean.sh
+
+deploy-game-mainnet: build
+	forge script script/Deploy.s.sol:DeployGame --evm-version paris --rpc-url shape --ledger --sender ${SENDER} --broadcast
+	forge verify-contract $$(cat out.txt) src/Game.sol:Game --verifier blockscout --verifier-url https://shapescan.xyz/api --watch --constructor-args ${CONSTRUCTOR_ARGS}
 	@bash print_and_clean.sh
